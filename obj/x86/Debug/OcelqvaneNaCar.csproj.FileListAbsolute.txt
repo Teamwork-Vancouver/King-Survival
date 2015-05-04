@@ -1,0 +1,5 @@
+C:\Users\Tapac\Desktop\High-Quality-Code-Teamwork-Projects\King-Survival\King-Survival-4\bin\Debug\KingSurvival.exe
+C:\Users\Tapac\Desktop\High-Quality-Code-Teamwork-Projects\King-Survival\King-Survival-4\bin\Debug\KingSurvival.pdb
+C:\Users\Tapac\Desktop\High-Quality-Code-Teamwork-Projects\King-Survival\King-Survival-4\obj\x86\Debug\OcelqvaneNaCar.csprojResolveAssemblyReference.cache
+C:\Users\Tapac\Desktop\High-Quality-Code-Teamwork-Projects\King-Survival\King-Survival-4\obj\x86\Debug\KingSurvival.exe
+C:\Users\Tapac\Desktop\High-Quality-Code-Teamwork-Projects\King-Survival\King-Survival-4\obj\x86\Debug\KingSurvival.pdb
