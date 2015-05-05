@@ -1,4 +1,6 @@
-﻿namespace KingSurvival
+﻿using KingSurvival.Commands;
+
+namespace KingSurvival
 {
     using System;
     using Enumerations;
@@ -13,13 +15,15 @@
         }
 
         public int Turns { get; set; }
+
         public Board Board { get; set; }
 
         public void Run()
         {
+            string command;
+            MoveCommand moveCommand;
             while (CheckIfKingWon() || CheckIfKingLost())
             {
-                string command;
                 this.Board.InitializeField();
                 this.Board.PrintBoard();
 
@@ -27,20 +31,19 @@
                 {
                     Console.Write("King's turn: ");
                     command = Console.ReadLine();
-                    this.ProcessKingCommand(command);
+                    moveCommand = new KingMoveCommand(command, this.Board.King);
+                    moveCommand.ProcessCommand();
                 }
                 else
                 {
                     Console.Write("Pawn's turn: ");
                     command = Console.ReadLine();
-                    //this.ProcessPawnCommand(command);
+                    moveCommand = new PawnMoveCommand(command, this.Board.PawnA);
+                    moveCommand.ProcessCommand();
                 }
+
+                this.Turns++;
             }
-        }
-
-        private void ProcessKingCommand(string command)
-        {
-
         }
 
         private bool CheckIfKingLost()

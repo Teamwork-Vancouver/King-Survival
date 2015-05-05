@@ -2,7 +2,7 @@
 {
     using Contracts;
 
-    public abstract class Figure : IFigure, IMovable
+    public abstract class Figure : IMovable
     {
         protected Figure(int positionX, int positionY, char symbol)
         {

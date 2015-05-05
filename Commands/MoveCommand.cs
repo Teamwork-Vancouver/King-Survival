@@ -16,7 +16,7 @@
 
         protected bool ValidateCommandLength()
         {
-            if (this.CommandText.Length != 3)
+            if (this.CommandText.Length != GameConstants.MaxCommandWordLenght)
             {
                 return false;
             }
@@ -24,7 +24,7 @@
             return true;
         }
 
-        protected abstract void ProcessCommand();
+        public abstract void ProcessCommand();
 
         protected abstract bool ValidateCommandText();
     }

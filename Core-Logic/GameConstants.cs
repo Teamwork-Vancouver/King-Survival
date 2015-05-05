@@ -13,5 +13,10 @@
         public const int PawnBStartPositionX = 2;
         public const int PawnCStartPositionX = 4;
         public const int PawnDStartPositionX = 6;
+
+        public const int MaxCommandWordLenght = 3;
+
+        public static readonly int[] DeltaRow = { -1, +1, +1, -1 };
+        public static readonly int[] DeltaColumn = { +1, +1, -1, -1 };
     }
 }
