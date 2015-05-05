@@ -43,23 +43,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\CommandFactory.cs" />
+    <Compile Include="Commands\CommandParser.cs" />
     <Compile Include="Commands\MoveCommand.cs" />
-    <Compile Include="Commands\KingMoveCommand.cs" />
-    <Compile Include="Commands\PawnMoveCommand.cs" />
+    <Compile Include="Commands\MoveUpCommand.cs" />
+    <Compile Include="Commands\MoveDownCommand.cs" />
     <Compile Include="Contracts\ICommand.cs" />
     <Compile Include="Contracts\IFigure.cs" />
-    <Compile Include="Contracts\IMovable.cs" />
     <Compile Include="Enumerations\BoardSymbols.cs" />
     <Compile Include="Enumerations\FigureSymbols.cs" />
     <Compile Include="Core-Logic\Game.cs" />
     <Compile Include="Core-Logic\GameConstants.cs" />
     <Compile Include="MainGame.cs" />
     <Compile Include="Models\Board.cs" />
+    <Compile Include="Models\FigureEntry.cs" />
+    <Compile Include="Models\Position.cs" />
     <Compile Include="Models\Figure.cs" />
     <Compile Include="Models\King.cs" />
     <Compile Include="Models\Pawn.cs" />
+    <Compile Include="Models\PossitionFactory.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Exceptions\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

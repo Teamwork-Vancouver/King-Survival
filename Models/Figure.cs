@@ -2,25 +2,38 @@
 {
     using Contracts;
 
-    public abstract class Figure : IMovable
+    public abstract class Figure : IFigure
     {
-        protected Figure(int positionX, int positionY, char symbol)
+        protected Figure( char symbol)
         {
-            this.PositionX = positionX;
-            this.PositionY = positionY;
             this.Symbol = symbol;
         }
 
-        public int PositionX { get; set; }
-
-        public int PositionY { get; set; }
-
         public char Symbol { get; set; }
 
-        public void Move(int directionX, int directionY)
+        public virtual bool CanMoveUp
         {
-            this.PositionX += directionX;
-            this.PositionY += directionY;
+            get { return false; }
+        }
+
+        public virtual bool CanMoveDown
+        {
+            get { return false; }
+        }
+
+        public virtual bool CanMoveLeft
+        {
+            get { return false; }
+        }
+
+        public virtual bool CanMoveRight
+        {
+            get { return false; }
+        }
+
+        public virtual bool CanMoveDigonal
+        {
+            get { return false; }
         }
     }
 }

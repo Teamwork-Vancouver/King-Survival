@@ -1,10 +1,9 @@
-﻿using KingSurvival.Commands;
-
-namespace KingSurvival
+﻿namespace KingSurvival
 {
     using System;
-    using Enumerations;
     using Models;
+    using Commands;
+    using Contracts;
 
     public class Game
     {
@@ -22,27 +21,36 @@ namespace KingSurvival
         {
             string command;
             MoveCommand moveCommand;
+            CommandParser parser;
+
             while (CheckIfKingWon() || CheckIfKingLost())
             {
-                this.Board.InitializeField();
                 this.Board.PrintBoard();
 
-                if (this.Turns % 2 == 0)
+                if (this.Turns%2 == 0)
                 {
                     Console.Write("King's turn: ");
-                    command = Console.ReadLine();
-                    moveCommand = new KingMoveCommand(command, this.Board.King);
-                    moveCommand.ProcessCommand();
                 }
                 else
                 {
-                    Console.Write("Pawn's turn: ");
-                    command = Console.ReadLine();
-                    moveCommand = new PawnMoveCommand(command, this.Board.PawnA);
-                    moveCommand.ProcessCommand();
+                    Console.Write("Pawns' turn: ");
                 }
+                
+                try
+                {
+                    command = Console.ReadLine();
+                    parser = new CommandParser(command, this.Board, this.Turns);
+                    FigureEntry entry = parser.Parse();
+                    MoveCommand commandObject =
+                        CommandFactory.Create(entry.HorizontalDirection, entry.VerticalDirection, entry.Figure, Board, entry.Position);
+                    commandObject.ProcessCommand();
 
-                this.Turns++;
+                    this.Turns++;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
             }
         }
 
@@ -53,18 +61,18 @@ namespace KingSurvival
 
         private bool CheckIfKingWon()
         {
-            if (this.Board.King.PositionY == GameConstants.PawnsStartPositionY)
-            {
-                return true;
-            }
+            //if (this.Board.King.PositionY == GameConstants.PawnsStartPositionY)
+            //{
+            //    return true;
+            //}
 
-            for (int i = 1; i < this.Board.Field.GetLength(1); i += 2)
-            {
-                if (this.Board.Field[this.Board.Field.GetLength(0) - 1, i] == (int)BoardSymbols.Available)
-                {
-                    return false;
-                }
-            }
+            //for (int i = 1; i < this.Board.Field.GetLength(1); i += 2)
+            //{
+            //    if (this.Board.Field[this.Board.Field.GetLength(0) - 1, i] == (int)BoardSymbols.Available)
+            //    {
+            //        return false;
+            //    }
+            //}
             return true;
         }
     }

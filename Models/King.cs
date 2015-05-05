@@ -2,9 +2,22 @@
 {
     public class King : Figure
     {
-        public King(int positionX, int positionY, char symbol)
-            : base(positionX, positionY, symbol)
+        public King(char symbol)
+            : base(symbol)
         {
+        }
+
+        public override bool CanMoveDigonal
+        {
+            get { return true; }
+        }
+        public override bool CanMoveDown
+        {
+            get { return true; }
+        }
+        public override bool CanMoveUp
+        {
+            get { return true; }
         }
     }
 }
