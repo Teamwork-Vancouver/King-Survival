@@ -1,0 +1,7 @@
+C:\Users\Peter\Desktop\King-Survival\KingSurvivalGame.Tests\bin\Debug\KingSurvivalGame.Tests.dll
+C:\Users\Peter\Desktop\King-Survival\KingSurvivalGame.Tests\bin\Debug\KingSurvivalGame.Tests.pdb
+C:\Users\Peter\Desktop\King-Survival\KingSurvivalGame.Tests\bin\Debug\KingSurvival.exe
+C:\Users\Peter\Desktop\King-Survival\KingSurvivalGame.Tests\bin\Debug\KingSurvival.pdb
+C:\Users\Peter\Desktop\King-Survival\KingSurvivalGame.Tests\obj\Debug\KingSurvivalGame.Tests.csprojResolveAssemblyReference.cache
+C:\Users\Peter\Desktop\King-Survival\KingSurvivalGame.Tests\obj\Debug\KingSurvivalGame.Tests.dll
+C:\Users\Peter\Desktop\King-Survival\KingSurvivalGame.Tests\obj\Debug\KingSurvivalGame.Tests.pdb
