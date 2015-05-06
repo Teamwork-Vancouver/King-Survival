@@ -22,3 +22,4 @@ C:\Users\Peter\Desktop\King-Survival\obj\x86\Debug\KingSurvival.pdb
 C:\Users\Peter\Desktop\King-Survival\bin\Debug\KingSurvival.exe
 C:\Users\Peter\Desktop\King-Survival\bin\Debug\KingSurvival.pdb
 C:\Users\Peter\Desktop\King-Survival\obj\x86\Debug\KingSurvivalGame.csprojResolveAssemblyReference.cache
+C:\Users\Tapac\Documents\GitHub\King-Survival\obj\x86\Debug\KingSurvivalGame.csprojResolveAssemblyReference.cache

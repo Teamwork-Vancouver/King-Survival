@@ -1,12 +1,12 @@
 ﻿namespace KingSurvavalGame.Tests.Models
 {
-    using System.Collections.Generic;
+    using KingSurvival;
     using KingSurvival.Contracts;
     using KingSurvival.Enumerations;
     using KingSurvival.Models;
+    using System.Collections.Generic;
     using System.Linq;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using KingSurvival;
 
     [TestClass]
     public class BoardTests
@@ -38,14 +38,15 @@
             int minBoundsY = 0;
             int maxBoundsX = 7;
             int maxBoundsY = 7;
+
             //var keys = this.board.Figures.Keys;
-            for (int i = -10; i <= maxBoundsX*2; i++)
+            for (int i = -10; i <= maxBoundsX * 2; i++)
             {
-                for (int j = -10; j <= maxBoundsY*2; j++)
+                for (int j = -10; j <= maxBoundsY * 2; j++)
                 {
                     if (i < minBoundsX || j < minBoundsY || i > maxBoundsX || j > maxBoundsY)
                     {
-                        Assert.AreEqual(false, this.board.IsPositionInBounds(i, j), "The method shoud return false on values "+i+"and " + j);
+                        Assert.AreEqual(false, this.board.IsPositionInBounds(i, j), "The method shoud return false on values " + i + "and " + j);
                     }
                     else
                     {
@@ -65,8 +66,6 @@
             {
                 for (int j = 0; j <= maxBoundsY; j++)
                 {
-
-
                     if (keys.ToArray().FirstOrDefault(obj => obj.X == i && obj.Y == j) != null)
                     {
                         Assert.AreEqual(false, this.board.IsPositionAvailable(i, j), "this method shoud have returned false on values " + i + "and " + j);
@@ -75,11 +74,10 @@
                     {
                         Assert.AreEqual(true, this.board.IsPositionAvailable(i, j), "This method shoud have return true on values " + i + "and " + j);
                     }
+
                     //Assert.AreEqual(true, this.board.IsPositionInBounds(i, j), "The method shoud return true");
                 }
             }
         }
     }
 }
-
-
