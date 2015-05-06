@@ -31,7 +31,7 @@ namespace KingSurvival.Commands
         {
             Position positionToMove = new Position(this.Position.X + this.HorizontalDirection, this.Position.Y + verticalDirection, GameConstants.BoardWidth, GameConstants.BoardHeight);
 
-            var occupied = Board.IsNextPositionAvailable(positionToMove.X, positionToMove.Y);
+            var occupied = Board.IsPositionAvailable(positionToMove.X, positionToMove.Y);
 
             if (occupied)
             {
@@ -40,7 +40,7 @@ namespace KingSurvival.Commands
             }
             else
             {
-                throw new Exception(ExceptionMessages.UnavailablePosition);
+                throw new InvalidCommandException(ExceptionMessages.UnavailablePosition);
             }
         }
     }

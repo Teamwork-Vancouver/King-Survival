@@ -23,15 +23,15 @@
 
         public IDictionary<Position, IFigure> Figures { get; set; }
 
-        public bool IsNextPositionAvailable(int nextPositionX, int nextPositionY)
+        public bool IsPositionAvailable(int nextPositionX, int nextPositionY)
         {
             bool occupied =
                 this.Figures.FirstOrDefault(x => x.Key.X == nextPositionX && x.Key.Y == nextPositionY).Value == null;
 
-            return occupied && !this.IsInBounds(nextPositionX, nextPositionY);
+            return occupied && !this.IsPositionInBounds(nextPositionX, nextPositionY);
         }
 
-        public bool IsInBounds(int nextPositionX, int nextPositionY)
+        public bool IsPositionInBounds(int nextPositionX, int nextPositionY)
         {
             bool insideX = nextPositionX > GameConstants.BoardWidth || nextPositionX < 0;
             bool insideY = nextPositionY > GameConstants.BoardHeight || nextPositionY < 0;

@@ -71,7 +71,7 @@
             for (int i = 0; i < GameConstants.PossibleFigureMoves.GetLength(0); i++)
             {
                 bool canMove =
-                    this.Board.IsNextPositionAvailable(
+                    this.Board.IsPositionAvailable(
                     kingPosition.X + GameConstants.PossibleFigureMoves[i, 0],
                     kingPosition.Y + GameConstants.PossibleFigureMoves[i, 1]);
 
@@ -109,8 +109,8 @@
                 int currentPawnNextRightYPosition = pawnPositions[pawnIndex].Key.Y +
                                                     GameConstants.PossibleFigureMoves[3, 1];
 
-                bool canMove = this.Board.IsNextPositionAvailable(currentPawnNextLeftXPosition, currentPawnNextLeftYPosition)
-                    || this.Board.IsNextPositionAvailable(currentPawnNextRightXPosition, currentPawnNextRightYPosition);
+                bool canMove = this.Board.IsPositionAvailable(currentPawnNextLeftXPosition, currentPawnNextLeftYPosition)
+                    || this.Board.IsPositionAvailable(currentPawnNextRightXPosition, currentPawnNextRightYPosition);
 
                 if (canMove)
                 {

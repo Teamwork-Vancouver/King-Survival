@@ -1,4 +1,6 @@
-﻿namespace KingSurvival.Commands
+﻿using KingSurvival.Exceptions;
+
+namespace KingSurvival.Commands
 {
     using System;
     using Contracts;
@@ -21,7 +23,7 @@
             }
             else
             {
-                throw new Exception("shslalalala");
+                throw new InvalidCommandException(ExceptionMessages.InvalidUpMove);
             }
         }
     }

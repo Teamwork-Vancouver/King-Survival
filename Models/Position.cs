@@ -1,4 +1,6 @@
-﻿namespace KingSurvival.Models
+﻿using KingSurvival.Exceptions;
+
+namespace KingSurvival.Models
 {
     using System;
 
@@ -28,7 +30,7 @@
             {
                 if (value < 0 || value > this.maxX)
                 {
-                    throw new Exception();
+                    throw new IndexOutOfRangeException(ExceptionMessages.OutOfBounds);
                 }
 
                 this.x = value;
@@ -46,7 +48,7 @@
             {
                 if (value < 0 || value > this.maxY)
                 {
-                    throw new Exception();
+                    throw new IndexOutOfRangeException(ExceptionMessages.OutOfBounds);
                 }
 
                 this.y = value;
