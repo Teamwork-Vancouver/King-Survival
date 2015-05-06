@@ -15,6 +15,5 @@ C:\Users\Martin\Documents\GitHub\Projects\King-Survival\bin\Debug\KingSurvival.p
 C:\Users\Martin\Documents\GitHub\Projects\King-Survival\obj\x86\Debug\KingSurvivalGame.csprojResolveAssemblyReference.cache
 C:\Users\Tapac\Documents\GitHub\King-Survival\obj\x86\Debug\KingSurvival.exe
 C:\Users\Tapac\Documents\GitHub\King-Survival\obj\x86\Debug\KingSurvival.pdb
-C:\Users\Tapac\Documents\GitHub\King-Survival\obj\x86\Debug\KingSurvivalGame.csprojResolveAssemblyReference.cache
 C:\Users\Tapac\Documents\GitHub\King-Survival\bin\Debug\KingSurvival.exe
 C:\Users\Tapac\Documents\GitHub\King-Survival\bin\Debug\KingSurvival.pdb

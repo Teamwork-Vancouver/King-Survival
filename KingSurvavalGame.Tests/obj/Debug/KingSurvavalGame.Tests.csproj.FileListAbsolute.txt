@@ -1,7 +1,0 @@
-C:\Users\Martin\Documents\GitHub\Projects\KingSurvavalGame.Tests\bin\Debug\KingSurvavalGame.Tests.dll
-C:\Users\Martin\Documents\GitHub\Projects\KingSurvavalGame.Tests\bin\Debug\KingSurvavalGame.Tests.pdb
-C:\Users\Martin\Documents\GitHub\Projects\KingSurvavalGame.Tests\bin\Debug\KingSurvival.exe
-C:\Users\Martin\Documents\GitHub\Projects\KingSurvavalGame.Tests\bin\Debug\KingSurvival.pdb
-C:\Users\Martin\Documents\GitHub\Projects\KingSurvavalGame.Tests\obj\Debug\KingSurvavalGame.Tests.csprojResolveAssemblyReference.cache
-C:\Users\Martin\Documents\GitHub\Projects\KingSurvavalGame.Tests\obj\Debug\KingSurvavalGame.Tests.dll
-C:\Users\Martin\Documents\GitHub\Projects\KingSurvavalGame.Tests\obj\Debug\KingSurvavalGame.Tests.pdb

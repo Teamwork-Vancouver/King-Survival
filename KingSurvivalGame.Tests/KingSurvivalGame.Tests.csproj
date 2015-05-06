@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A0CCED52-4C0B-4D79-B635-DEF34142532A}</ProjectGuid>
+    <ProjectGuid>{D449C8FC-D396-4D6B-A304-C83A6726D141}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>KingSurvavalGame.Tests</RootNamespace>
-    <AssemblyName>KingSurvavalGame.Tests</AssemblyName>
+    <RootNamespace>KingSurvivalGame.Tests</RootNamespace>
+    <AssemblyName>KingSurvivalGame.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -50,11 +50,11 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="BoardTests.cs" />
+    <Compile Include="Models\UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\King-Survival\KingSurvivalGame.csproj">
+    <ProjectReference Include="..\KingSurvivalGame.csproj">
       <Project>{3b359107-e96f-4b2e-b211-be6eadec46b8}</Project>
       <Name>KingSurvivalGame</Name>
     </ProjectReference>

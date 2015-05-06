@@ -14,17 +14,17 @@
         [TestInitialize]
         public void InitFigures()
         {
-           this.Figures = new Dictionary<Position, IFigure>();
+            this.Figures = new Dictionary<Position, IFigure>();
         }
 
         [TestMethod]
         public void IncrementBoardDictionaryCountAfterAddingAnElementToIt()
         {
-             Position position = new Position(1,1,7,7);
-             Figure figure = new King((char)FigureSymbols.King);
-             this.Figures.Add(position, figure);
+            Position position = new Position(1, 1, 7, 7);
+            Figure figure = new King((char)FigureSymbols.King);
+            this.Figures.Add(position, figure);
 
-             Assert.AreEqual(1,this.Figures.Count,"The count shoud be 1 but it is not!");
+            Assert.AreEqual(1, this.Figures.Count, "The count shoud be 1 but it is not!");
         }
     }
 }

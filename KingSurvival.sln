@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KingSurvivalGame", "KingSurvivalGame.csproj", "{3B359107-E96F-4B2E-B211-BE6EADEC46B8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KingSurvavalGame.Tests", "..\KingSurvavalGame.Tests\KingSurvavalGame.Tests.csproj", "{A0CCED52-4C0B-4D79-B635-DEF34142532A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KingSurvivalGame.Tests", "KingSurvivalGame.Tests\KingSurvivalGame.Tests.csproj", "{D449C8FC-D396-4D6B-A304-C83A6726D141}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,16 +27,16 @@ Global
 		{3B359107-E96F-4B2E-B211-BE6EADEC46B8}.Release|Mixed Platforms.Build.0 = Release|x86
 		{3B359107-E96F-4B2E-B211-BE6EADEC46B8}.Release|x86.ActiveCfg = Release|x86
 		{3B359107-E96F-4B2E-B211-BE6EADEC46B8}.Release|x86.Build.0 = Release|x86
-		{A0CCED52-4C0B-4D79-B635-DEF34142532A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A0CCED52-4C0B-4D79-B635-DEF34142532A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A0CCED52-4C0B-4D79-B635-DEF34142532A}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{A0CCED52-4C0B-4D79-B635-DEF34142532A}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{A0CCED52-4C0B-4D79-B635-DEF34142532A}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{A0CCED52-4C0B-4D79-B635-DEF34142532A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A0CCED52-4C0B-4D79-B635-DEF34142532A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A0CCED52-4C0B-4D79-B635-DEF34142532A}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{A0CCED52-4C0B-4D79-B635-DEF34142532A}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{A0CCED52-4C0B-4D79-B635-DEF34142532A}.Release|x86.ActiveCfg = Release|Any CPU
+		{D449C8FC-D396-4D6B-A304-C83A6726D141}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D449C8FC-D396-4D6B-A304-C83A6726D141}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D449C8FC-D396-4D6B-A304-C83A6726D141}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{D449C8FC-D396-4D6B-A304-C83A6726D141}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{D449C8FC-D396-4D6B-A304-C83A6726D141}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D449C8FC-D396-4D6B-A304-C83A6726D141}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D449C8FC-D396-4D6B-A304-C83A6726D141}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D449C8FC-D396-4D6B-A304-C83A6726D141}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{D449C8FC-D396-4D6B-A304-C83A6726D141}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{D449C8FC-D396-4D6B-A304-C83A6726D141}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
