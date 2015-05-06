@@ -1,4 +1,6 @@
-﻿namespace KingSurvival.Commands
+﻿using KingSurvival.Exceptions;
+
+namespace KingSurvival.Commands
 {
     using System;
     using Contracts;
@@ -15,7 +17,7 @@
                 case MoveDownCommand.VerticalDirection:
                     return new MoveDownCommand(horizontalDirection, fig, board, position);
                 default:
-                    throw new Exception();
+                    throw new CommandException(ExceptionMessages.InvalidFactoryCommand);
             }
         }
     }
