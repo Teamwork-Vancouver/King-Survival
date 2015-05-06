@@ -27,7 +27,7 @@
         {
             bool occupied =
                 this.Figures.FirstOrDefault(x => x.Key.X == nextPositionX && x.Key.Y == nextPositionY).Value == null;
-            Console.WriteLine("test" + IsPositionInBounds(0, 0));
+    
             return occupied && this.IsPositionInBounds(nextPositionX, nextPositionY);
         }
 

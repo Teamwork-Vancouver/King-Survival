@@ -91,5 +91,7 @@ namespace KingSurvival.Commands
             entry = this.Board.Figures.FirstOrDefault(x => x.Value.Symbol == figureSymbol);
             return new FigureEntry(this.GetHorizontalDirection(), this.GetVerticalDirection(), entry.Value, entry.Key);
         }
+
+       
     }
 }

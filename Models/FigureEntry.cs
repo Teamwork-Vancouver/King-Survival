@@ -19,5 +19,8 @@
         public Position Position { get; set; }
 
         public IFigure Figure { get; set; }
+
+        
     }
+
 }
