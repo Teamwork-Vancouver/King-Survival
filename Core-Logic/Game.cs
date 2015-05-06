@@ -11,7 +11,7 @@
         public Game(Board board)
         {
             Board = board;
-            Turns = 1;
+            this.Turns = 1;
         }
 
         public int Turns { get; set; }
@@ -35,17 +35,21 @@
             {
                 try
                 {
-                    Console.Write(Turns % 2 == 1 ? "King's turn: " : "Pawns' turn: ");
+                    Console.Write(this.Turns % 2 == 1 ? "King's turn: " : "Pawns' turn: ");
 
                     command = Console.ReadLine();
-                    parser = new CommandParser(command, Board, Turns);
+                    parser = new CommandParser(command, this.Board, this.Turns);
                     figureEntry = parser.Parse();
                     moveCommand =
-                        CommandFactory.Create(figureEntry.HorizontalDirection, figureEntry.VerticalDirection, figureEntry.Figure,
-                            figureEntry.Position, this.Board);
+                        CommandFactory.Create(
+                        figureEntry.HorizontalDirection,
+                        figureEntry.VerticalDirection,
+                        figureEntry.Figure,
+                        figureEntry.Position,
+                        this.Board);
                     moveCommand.ProcessCommand();
 
-                    Turns++;
+                    this.Turns++;
                 }
                 catch (Exception e)
                 {
@@ -73,6 +77,7 @@
                     return false;
                 }
             }
+
             return true;
         }
 
@@ -109,6 +114,7 @@
                     return false;
                 }
             }
+
             return true;
         }
 

@@ -1,8 +1,8 @@
 ﻿namespace KingSurvival.Models
 {
     using System;
-    using System.Linq;
     using System.Collections.Generic;
+    using System.Linq;
     using Contracts;
     using Enumerations;
 
@@ -26,9 +26,9 @@
         public void PrintBoard()
         {
             string rowNumbers = "0 1 2 3 4 5 6 7";
-            string underscore = string.Format("{0}", new String('_', 17));
-            string fieldBeginning = string.Format("UL{2}{0}{2}UR\n{2} {1}", rowNumbers, underscore, new String(' ', 2));
-            string fieldEnd = string.Format("DL{1}{0}{1}DR\n{1}", rowNumbers, new String(' ', 2));
+            string underscore = string.Format("{0}", new string('_', 17));
+            string fieldBeginning = string.Format("UL{2}{0}{2}UR\n{2} {1}", rowNumbers, underscore, new string(' ', 2));
+            string fieldEnd = string.Format("DL{1}{0}{1}DR\n{1}", rowNumbers, new string(' ', 2));
 
             Console.WriteLine(fieldBeginning);
             for (int row = 0; row <= GameConstants.BoardWidth; row++)
@@ -49,18 +49,12 @@
                         char symbol = (row + column) % 2 == 0 ? '+' : '-';
                         Console.Write(symbol.ToString() + ' ');
                     }
-
                 }
 
                 Console.Write(rowEnd + "\n");
             }
 
-            Console.WriteLine(string.Format("{0}{1}{2}{1}{0}", new String(' ', 2), '|', underscore) + "\n" + fieldEnd);
-        }
-
-        private void AddFigure(int x, int y, IFigure fig)
-        {
-            this.Figures.Add(this.positionFactory.Create(x, y), fig);
+            Console.WriteLine(string.Format("{0}{1}{2}{1}{0}", new string(' ', 2), '|', underscore) + "\n" + fieldEnd);
         }
 
         public bool IsNextPositionAvailable(int nextPositionX, int nextPositionY)
@@ -68,8 +62,7 @@
             bool occupied =
                 this.Figures.FirstOrDefault(x => x.Key.X == nextPositionX && x.Key.Y == nextPositionY).Value == null;
 
-            return occupied && !(IsInBounds(nextPositionX, nextPositionY));
-            //return occupied && !(insideX || insideY);
+            return occupied && !this.IsInBounds(nextPositionX, nextPositionY);
         }
 
         public bool IsInBounds(int nextPositionX, int nextPositionY)
@@ -78,6 +71,11 @@
             bool insideY = nextPositionY > GameConstants.BoardHeight || nextPositionY < 0;
 
             return insideX || insideY;
+        }
+
+        private void AddFigure(int x, int y, IFigure fig)
+        {
+            this.Figures.Add(this.positionFactory.Create(x, y), fig);
         }
     }
 }

@@ -11,10 +11,12 @@
         {
             get { return true; }
         }
+
         public override bool CanMoveDown
         {
             get { return true; }
         }
+
         public override bool CanMoveUp
         {
             get { return true; }

@@ -17,7 +17,7 @@
         {
             if (this.CommandObject.CanMoveUp && this.CommandObject.CanMoveDigonal)
             {
-                ExecuteMoveCommand(VerticalDirection);
+                this.ExecuteMoveCommand(VerticalDirection);
             }
             else
             {

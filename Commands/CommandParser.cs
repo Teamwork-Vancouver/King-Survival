@@ -1,16 +1,14 @@
 ﻿namespace KingSurvival.Commands
 {
     using System;
-    using System.Linq;
     using System.Collections.Generic;
-    using Models;
+    using System.Linq;
     using Contracts;
     using Enumerations;
+    using Models;
 
     public class CommandParser
     {
-        private string commandText;
-
         public CommandParser(string commandText, Board board, int turns)
         {
             this.CommandText = commandText.ToUpper();
@@ -23,6 +21,24 @@
         public Board Board { get; set; }
 
         private string CommandText { get; set; }
+
+        public FigureEntry Parse()
+        {
+            char figureSymbol = this.CommandText[0];
+
+            if (this.Turns % 2 == 1 && figureSymbol == (char)FigureSymbols.King)
+            {
+                return this.GetFigureEntry(figureSymbol);
+            }
+            else if (this.Turns % 2 == 0 && GameConstants.PawnSymbols.Contains(figureSymbol))
+            {
+                return this.GetFigureEntry(figureSymbol);
+            }
+            else
+            {
+                throw new Exception();
+            }
+        }
 
         private int GetHorizontalDirection()
         {
@@ -51,7 +67,6 @@
                 default: throw new Exception();
             }
         }
-        //TO USE!!!!
 
         private bool ValidateCommandLength(string commandText)
         {
@@ -61,24 +76,6 @@
             }
 
             return true;
-        }
-
-        public FigureEntry Parse()
-        {
-            char figureSymbol = this.CommandText[0];
-
-            if (this.Turns % 2 == 1 && figureSymbol == (char)FigureSymbols.King)
-            {
-                return GetFigureEntry(figureSymbol);
-            }
-            else if (this.Turns % 2 == 0 && GameConstants.PawnSymbols.Contains(figureSymbol))
-            {
-                return GetFigureEntry(figureSymbol);
-            }
-            else
-            {
-                throw new Exception();
-            }
         }
 
         private FigureEntry GetFigureEntry(char figureSymbol)

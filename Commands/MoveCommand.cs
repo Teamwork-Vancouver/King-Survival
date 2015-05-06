@@ -1,9 +1,8 @@
 ﻿namespace KingSurvival.Commands
 {
-    using Contracts;
     using System;
     using System.Collections.Generic;
-    using System.Linq;
+    using Contracts;
     using Models;
 
     public abstract class MoveCommand
@@ -26,7 +25,6 @@
 
         private int HorizontalDirection { get; set; }
 
-       
         protected void ExecuteMoveCommand(int verticalDirection)
         {
             Position positionToMove = new Position(this.Position.X + this.HorizontalDirection, this.Position.Y + verticalDirection, GameConstants.BoardWidth, GameConstants.BoardHeight);

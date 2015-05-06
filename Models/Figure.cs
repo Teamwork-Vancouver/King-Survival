@@ -4,7 +4,7 @@
 
     public abstract class Figure : IFigure
     {
-        protected Figure( char symbol)
+        protected Figure(char symbol)
         {
             this.Symbol = symbol;
         }

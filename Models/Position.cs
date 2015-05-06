@@ -19,26 +19,36 @@
 
         public int X
         {
-            get { return this.x; }
+            get
+            {
+                return this.x;
+            }
+
             set
             {
                 if (value < 0 || value > this.maxX)
                 {
                     throw new Exception();
                 }
+
                 this.x = value;
             }
         }
 
         public int Y
         {
-            get { return this.y; }
+            get
+            {
+                return this.y;
+            }
+
             set
             {
                 if (value < 0 || value > this.maxY)
                 {
                     throw new Exception();
                 }
+
                 this.y = value;
             }
         }

@@ -2,8 +2,6 @@
 {
     public static class GameConstants
     {
-        public static readonly char[] PawnSymbols = { 'A', 'B', 'C', 'D' };
-
         public const int BoardWidth = 7;
         public const int BoardHeight = 7;
 
@@ -18,11 +16,12 @@
 
         public const int MaxCommandWordLength = 3;
 
-        public static readonly int[,] PossibleFigureMoves = { { -1, -1 }, { 1, -1 }, { 1, 1 }, { -1, 1 } };
-
         public const int MovesPerTurn = 2;
 
         public const string KingVictory = "King wins in {0} turns.";
         public const string KingLoss = "King lost in {0} turns.";
+
+        public static readonly char[] PawnSymbols = { 'A', 'B', 'C', 'D' };
+        public static readonly int[,] PossibleFigureMoves = { { -1, -1 }, { 1, -1 }, { 1, 1 }, { -1, 1 } };
     }
 }
