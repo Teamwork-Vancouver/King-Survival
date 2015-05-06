@@ -35,10 +35,9 @@
         [ExpectedException(typeof(InvalidCommandException))]
         public void CommandParserShouldThrowExceptionWhenTheGiverWordToParseHasLenghtDifferentOfThree()
         {
-            string command = "HAHAHa";
+            string command = "KingSurvival";
             CommandParser commandParser = new CommandParser(command, this.board, this.turns);
             commandParser.Parse();
         }
-
     }
 }
