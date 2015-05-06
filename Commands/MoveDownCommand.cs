@@ -1,6 +1,7 @@
 ﻿namespace KingSurvival.Commands
 {
     using Contracts;
+    using Exceptions;
     using Models;
 
     public class MoveDownCommand : MoveCommand
@@ -16,9 +17,13 @@
         /// </summary>
         public override void ProcessCommand()
         {
-            if (this.CommandObject.CanMoveDown && this.CommandObject.CanMoveDigonal)
+            if (this.CommandObject.CanMoveDown)
             {
                 this.ExecuteMoveCommand(VerticalDirection);
+            }
+            else
+            {
+                throw new InvalidCommandException(ExceptionMessages.InvalidUpMove);
             }
         }
     }

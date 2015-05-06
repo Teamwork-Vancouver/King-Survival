@@ -17,7 +17,7 @@
         /// </summary>
         public override void ProcessCommand()
         {
-            if (this.CommandObject.CanMoveUp && this.CommandObject.CanMoveDigonal)
+            if (this.CommandObject.CanMoveUp)
             {
                 this.ExecuteMoveCommand(VerticalDirection);
             }
