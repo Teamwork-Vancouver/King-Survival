@@ -27,17 +27,16 @@
         {
             bool occupied =
                 this.Figures.FirstOrDefault(x => x.Key.X == nextPositionX && x.Key.Y == nextPositionY).Value == null;
-            Console.WriteLine("test" + IsPositionInBounds(0,0));
-            return occupied && this.IsPositionInBounds(nextPositionX, nextPositionY);
+
+            return occupied && !this.IsPositionInBounds(nextPositionX, nextPositionY);
         }
 
         public bool IsPositionInBounds(int nextPositionX, int nextPositionY)
         {
-            
-            bool insideX = nextPositionX <= GameConstants.BoardWidth && nextPositionX >= 0;
-            bool insideY = nextPositionY <= GameConstants.BoardHeight && nextPositionY >= 0;
+            bool insideX = nextPositionX > GameConstants.BoardWidth || nextPositionX < 0;
+            bool insideY = nextPositionY > GameConstants.BoardHeight || nextPositionY < 0;
 
-            return insideX && insideY;
+            return insideX || insideY;
         }
 
         private void AddFigure(int x, int y, IFigure fig)
