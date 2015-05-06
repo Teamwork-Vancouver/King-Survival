@@ -11,7 +11,9 @@
             : base(horizontalDirection, fig, board, position)
         {
         }
-
+        /// <summary>
+        /// Processes(check if the current figure can move down) the command given and then passes vertical direction to ExecuteMoveCommand
+        /// </summary>
         public override void ProcessCommand()
         {
             if (this.CommandObject.CanMoveDown && this.CommandObject.CanMoveDigonal)

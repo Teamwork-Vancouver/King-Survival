@@ -24,6 +24,10 @@ namespace KingSurvival.Commands
 
         private string CommandText { get; set; }
 
+        /// <summary>
+        /// Parses the command text an checks if it is valid after going throug several methods
+        /// </summary>
+        /// <returns>returns FigureEntry</returns>
         public FigureEntry Parse()
         {
             if (!this.ValidateCommandLength())
@@ -46,7 +50,10 @@ namespace KingSurvival.Commands
                 throw new InvalidCommandException(ExceptionMessages.InvalidFigureCharacter);
             }
         }
-
+        /// <summary>
+        /// Gets the second symbol of the command text and parses it.
+        /// </summary>
+        /// <returns>(Integer) horisontal direction</returns>
         private int GetHorizontalDirection()
         {
             char commandHorizontalDirection = this.CommandText[2];
@@ -60,7 +67,10 @@ namespace KingSurvival.Commands
                 default: throw new InvalidCommandException(ExceptionMessages.InvalidHorizontalDirection);
             }
         }
-
+        /// <summary>
+        /// Gets the third symbol of the ommand text and parses it.
+        /// </summary>
+        /// <returns>(Integer) vertical direction</returns>
         private int GetVerticalDirection()
         {
             char commandVerticalDirection = this.CommandText[1];
@@ -74,7 +84,10 @@ namespace KingSurvival.Commands
                 default: throw new InvalidCommandException(ExceptionMessages.InvalidVerticalDirection);
             }
         }
-
+        /// <summary>
+        /// Checks if the command text is exatly three letters.
+        /// </summary>
+        /// <returns>Boolean</returns>
         private bool ValidateCommandLength()
         {
             if (this.CommandText.Length != GameConstants.MaxCommandWordLength)
@@ -84,7 +97,11 @@ namespace KingSurvival.Commands
 
             return true;
         }
-
+        /// <summary>
+        /// Searches the board for the figure symbol passed to it and makes a FigureEntry Object
+        /// </summary>
+        /// <param name="figureSymbol">The symbol of the current fugure</param>
+        /// <returns>The FigureEntry object</returns>
         private FigureEntry GetFigureEntry(char figureSymbol)
         {
             KeyValuePair<Position, IFigure> entry;

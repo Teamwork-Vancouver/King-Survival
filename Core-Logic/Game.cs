@@ -84,10 +84,13 @@
                 }
 
                 this.Renderer.Render(this.Board);
-                this.CheckForWinner();
+                this.StopGameIfWinnerFound();
             }
         }
-
+        /// <summary>
+        /// Makes the necessary checks to return if the king lost the game
+        /// </summary>
+        /// <returns>Boolean</returns>
         private bool CheckIfKingLost()
         {
             Position kingPosition = this.Board.Figures.FirstOrDefault(x => x.Value.Symbol == (char)FigureSymbols.King).Key;
@@ -95,7 +98,7 @@
             for (int i = 0; i < GameConstants.PossibleFigureMoves.GetLength(0); i++)
             {
                 bool canMove =
-                    this.Board.IsPositionAvailable(
+                    this.Board.IsPositionAvailableForMove(
                     kingPosition.X + GameConstants.PossibleFigureMoves[i, 0],
                     kingPosition.Y + GameConstants.PossibleFigureMoves[i, 1]);
 
@@ -107,7 +110,10 @@
 
             return true;
         }
-
+        /// <summary>
+        /// Makes the necessary check to if the king lost the game
+        /// </summary>
+        /// <returns>Boolean</returns>
         private bool CheckIfKingWon()
         {
             bool isKingOnFirstRow =
@@ -133,8 +139,8 @@
                 int currentPawnNextRightYPosition = pawnPositions[pawnIndex].Key.Y +
                                                     GameConstants.PossibleFigureMoves[3, 1];
 
-                bool canMove = this.Board.IsPositionAvailable(currentPawnNextLeftXPosition, currentPawnNextLeftYPosition)
-                    || this.Board.IsPositionAvailable(currentPawnNextRightXPosition, currentPawnNextRightYPosition);
+                bool canMove = this.Board.IsPositionAvailableForMove(currentPawnNextLeftXPosition, currentPawnNextLeftYPosition)
+                    || this.Board.IsPositionAvailableForMove(currentPawnNextRightXPosition, currentPawnNextRightYPosition);
 
                 if (canMove)
                 {
@@ -144,8 +150,10 @@
 
             return true;
         }
-
-        private void CheckForWinner()
+        /// <summary>
+        /// Combines if the king lost or won and stops the game loop.
+        /// </summary>
+        private void StopGameIfWinnerFound()
         {
             if (this.CheckIfKingLost())
             {

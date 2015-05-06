@@ -26,12 +26,15 @@ namespace KingSurvival.Commands
         private Position Position { get; set; }
 
         private int HorizontalDirection { get; set; }
-
+        /// <summary>
+        /// makes the move given verticalDirection
+        /// </summary>
+        /// <param name="verticalDirection">(int) the vertical direction for a figure to move</param>
         protected void ExecuteMoveCommand(int verticalDirection)
         {
             Position positionToMove = new Position(this.Position.X + this.HorizontalDirection, this.Position.Y + verticalDirection, GameConstants.BoardWidth, GameConstants.BoardHeight);
 
-            var occupied = Board.IsPositionAvailable(positionToMove.X, positionToMove.Y);
+            var occupied = Board.IsPositionAvailableForMove(positionToMove.X, positionToMove.Y);
 
             if (occupied)
             {

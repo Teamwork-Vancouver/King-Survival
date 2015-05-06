@@ -68,11 +68,11 @@
                 {
                     if (keys.ToArray().FirstOrDefault(obj => obj.X == i && obj.Y == j) != null)
                     {
-                        Assert.AreEqual(false, this.board.IsPositionAvailable(i, j), "this method shoud have returned false on values " + i + "and " + j);
+                        Assert.AreEqual(false, this.board.IsPositionAvailableForMove(i, j), "this method shoud have returned false on values " + i + "and " + j);
                     }
                     else
                     {
-                        Assert.AreEqual(true, this.board.IsPositionAvailable(i, j), "This method shoud have return true on values " + i + "and " + j);
+                        Assert.AreEqual(true, this.board.IsPositionAvailableForMove(i, j), "This method shoud have return true on values " + i + "and " + j);
                     }
 
                     //Assert.AreEqual(true, this.board.IsPositionInBounds(i, j), "The method shoud return true");
