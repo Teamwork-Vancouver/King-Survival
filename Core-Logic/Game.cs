@@ -8,11 +8,35 @@
 
     public class Game
     {
-        public Game(Board board, Renderer renderer)
+        private static volatile Game instance;
+        private static readonly object syncRoot = new Object();
+
+        private Game(Board board, Renderer renderer)
         {
             this.Renderer = renderer;
             this.Board = board;
             this.Turns = 1;
+        }
+
+        public static Game Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    lock (syncRoot)
+                    {
+                        if (instance == null)
+                        {
+                            var board = new Board(GameConstants.BoardWidth, GameConstants.BoardHeight);
+                            var renderer = new Renderer();
+                            instance = new Game(board, renderer);
+                        }
+                    }
+                }
+
+                return instance;
+            }
         }
 
         public Renderer Renderer { get; set; }

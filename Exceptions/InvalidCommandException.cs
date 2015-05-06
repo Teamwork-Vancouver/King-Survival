@@ -1,10 +1,10 @@
-﻿using System;
-using System.Runtime.Serialization;
-namespace KingSurvival.Exceptions
+﻿namespace KingSurvival.Exceptions
 {
+    using System;
+    using System.Runtime.Serialization;
+
     public class InvalidCommandException : MoveCommandException
     {
-     
         /// <summary>
         /// Invalid Command Exeption
         /// Trown when the user command is invalid

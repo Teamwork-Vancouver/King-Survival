@@ -33,7 +33,6 @@
 
         public bool IsPositionInBounds(int nextPositionX, int nextPositionY)
         {
-
             bool insideX = nextPositionX <= GameConstants.BoardWidth && nextPositionX >= 0;
             bool insideY = nextPositionY <= GameConstants.BoardHeight && nextPositionY >= 0;
 

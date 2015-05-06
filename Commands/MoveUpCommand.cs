@@ -1,9 +1,7 @@
-﻿using KingSurvival.Exceptions;
-
-namespace KingSurvival.Commands
+﻿namespace KingSurvival.Commands
 {
-    using System;
     using Contracts;
+    using Exceptions;
     using Models;
 
     public class MoveUpCommand : MoveCommand

@@ -1,5 +1,4 @@
-﻿
-namespace KingSurvival.Exceptions
+﻿namespace KingSurvival.Exceptions
 {
     public class ExceptionMessages
     {

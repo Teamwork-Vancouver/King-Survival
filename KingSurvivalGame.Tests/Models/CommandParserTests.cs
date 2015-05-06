@@ -1,18 +1,14 @@
-﻿using System;
-using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using KingSurvival.Commands;
-using KingSurvival;
-using KingSurvival.Models;
-using KingSurvival.Enumerations;
-using KingSurvival.Exceptions;
-
-namespace KingSurvivalGame.Tests.Models
+﻿namespace KingSurvivalGame.Tests.Models
 {
+    using KingSurvival.Commands;
+    using KingSurvival;
+    using KingSurvival.Models;
+    using KingSurvival.Exceptions;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     [TestClass]
     public class CommandParserTests
     {
-
         public Board board;
 
         [TestInitialize]
@@ -20,6 +16,7 @@ namespace KingSurvivalGame.Tests.Models
         {
             this.board = new Board(GameConstants.BoardWidth, GameConstants.BoardHeight);
         }
+
         [TestMethod]
         [ExpectedException(typeof(InvalidCommandException))]
         public void TestParseMethodForRightExeptions()
