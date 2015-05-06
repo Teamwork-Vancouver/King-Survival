@@ -66,13 +66,11 @@ namespace KingSurvival.Commands
         {
             char figureSymbol = this.CommandText[0];
 
-            char[] pawnSymbols = {'A','B','C','D'};
-
             if (this.Turns % 2 == 0 && figureSymbol == 'K')
             {
                 return GetFigureEntry(figureSymbol);
             }
-            else if (this.Turns%2 == 1 && pawnSymbols.Contains(figureSymbol))
+            else if (this.Turns % 2 == 1 && GameConstants.PawnSymbols.Contains(figureSymbol))
             {
                 return GetFigureEntry(figureSymbol);
             }

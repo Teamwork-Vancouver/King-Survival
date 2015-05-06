@@ -1,20 +1,19 @@
-﻿namespace KingSurvival
-{
-    using System;
-    using Models;
-    using Commands;
-    using Contracts;
+﻿using System;
+using System.Linq;
+using KingSurvival.Commands;
+using KingSurvival.Models;
 
+namespace KingSurvival
+{
     public class Game
     {
         public Game(Board board)
         {
-            this.Board = board;
-            this.Turns = 0;
+            Board = board;
+            Turns = 0;
         }
 
         public int Turns { get; set; }
-
         public Board Board { get; set; }
 
         public void Run()
@@ -23,11 +22,11 @@
             MoveCommand moveCommand;
             CommandParser parser;
 
-            while (CheckIfKingWon() || CheckIfKingLost())
+            while (!CheckIfKingWon() || CheckIfKingLost())
             {
-                this.Board.PrintBoard();
+                Board.PrintBoard();
 
-                if (this.Turns%2 == 0)
+                if (Turns%2 == 0)
                 {
                     Console.Write("King's turn: ");
                 }
@@ -35,17 +34,18 @@
                 {
                     Console.Write("Pawns' turn: ");
                 }
-                
+
                 try
                 {
                     command = Console.ReadLine();
-                    parser = new CommandParser(command, this.Board, this.Turns);
-                    FigureEntry entry = parser.Parse();
-                    MoveCommand commandObject =
-                        CommandFactory.Create(entry.HorizontalDirection, entry.VerticalDirection, entry.Figure, Board, entry.Position);
+                    parser = new CommandParser(command, Board, Turns);
+                    var entry = parser.Parse();
+                    var commandObject =
+                        CommandFactory.Create(entry.HorizontalDirection, entry.VerticalDirection, entry.Figure, Board,
+                            entry.Position);
                     commandObject.ProcessCommand();
 
-                    this.Turns++;
+                    Turns++;
                 }
                 catch (Exception e)
                 {
@@ -61,18 +61,29 @@
 
         private bool CheckIfKingWon()
         {
-            //if (this.Board.King.PositionY == GameConstants.PawnsStartPositionY)
-            //{
-            //    return true;
-            //}
+            bool isKingOnFirstRow =
+                Board.Figures.FirstOrDefault(
+                    x => x.Value.Symbol == GameConstants.KingSymbol && x.Key.Y == 0).Value != null;
 
-            //for (int i = 1; i < this.Board.Field.GetLength(1); i += 2)
-            //{
-            //    if (this.Board.Field[this.Board.Field.GetLength(0) - 1, i] == (int)BoardSymbols.Available)
-            //    {
-            //        return false;
-            //    }
-            //}
+            if (isKingOnFirstRow)
+            {
+                Console.WriteLine("The King is on the first row");
+                return true;
+            }
+
+            for (var i = 0; i < GameConstants.PawnSymbols.Length; i++)
+            {
+                char currentSymbol = GameConstants.PawnSymbols[i];
+                bool isCurrentPawnOnLastRow =
+                    Board.Figures.FirstOrDefault(x => x.Value.Symbol == currentSymbol).Key.Y == GameConstants.BoardHeight;
+
+                if (!isCurrentPawnOnLastRow)
+                {
+                    return false;
+                }
+            }
+
+            Console.WriteLine("All pawns are or the last row");
             return true;
         }
     }

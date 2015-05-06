@@ -2,6 +2,9 @@
 {
     public static class GameConstants
     {
+        public const char KingSymbol = 'K';
+        public static readonly char[] PawnSymbols = { 'A', 'B', 'C', 'D' };
+
         public const int BoardWidth = 7;
         public const int BoardHeight = 7;
 
