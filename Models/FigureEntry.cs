@@ -4,11 +4,6 @@
 
     public class FigureEntry
     {
-        private int horizontalDirection;
-        private int verticalDirection;
-        private Position position;
-        private IFigure figure;
-
         public FigureEntry(int horizontalDirection, int verticalDirection, IFigure figure, Position position)
         {
             this.HorizontalDirection = horizontalDirection;

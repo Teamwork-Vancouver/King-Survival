@@ -8,12 +8,12 @@
 
     public class Board
     {
-        private PossitionFactory positionFactory;
+        private PositionFactory positionFactory;
 
         public Board(int boardWidth, int boardHeight)
         {
             this.Figures = new Dictionary<Position, IFigure>();
-            this.positionFactory = new PossitionFactory(boardWidth, boardHeight);
+            this.positionFactory = new PositionFactory(boardWidth, boardHeight);
             this.AddFigure(GameConstants.KingStartPositionX, GameConstants.KingStartPositionY, new King((char)FigureSymbols.King));
             this.AddFigure(GameConstants.PawnAStartPositionX, GameConstants.PawnsStartPositionY, new Pawn((char)FigureSymbols.PawnA));
             this.AddFigure(GameConstants.PawnBStartPositionX, GameConstants.PawnsStartPositionY, new Pawn((char)FigureSymbols.PawnB));
@@ -47,7 +47,7 @@
                     else
                     {
                         char symbol = (row + column) % 2 == 0 ? '+' : '-';
-                        Console.Write(symbol.ToString() + ' ');  
+                        Console.Write(symbol.ToString() + ' ');
                     }
 
                 }
@@ -61,6 +61,23 @@
         private void AddFigure(int x, int y, IFigure fig)
         {
             this.Figures.Add(this.positionFactory.Create(x, y), fig);
+        }
+
+        public bool IsNextPositionAvailable(int nextPositionX, int nextPositionY)
+        {
+            bool occupied =
+                this.Figures.FirstOrDefault(x => x.Key.X == nextPositionX && x.Key.Y == nextPositionY).Value == null;
+
+            return occupied && !(IsInBounds(nextPositionX, nextPositionY));
+            //return occupied && !(insideX || insideY);
+        }
+
+        public bool IsInBounds(int nextPositionX, int nextPositionY)
+        {
+            bool insideX = nextPositionX > GameConstants.BoardWidth || nextPositionX < 0;
+            bool insideY = nextPositionY > GameConstants.BoardHeight || nextPositionY < 0;
+
+            return insideX || insideY;
         }
     }
 }

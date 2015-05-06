@@ -1,7 +1,6 @@
-﻿using System;
-
-namespace KingSurvival.Commands
+﻿namespace KingSurvival.Commands
 {
+    using System;
     using Contracts;
     using Models;
 

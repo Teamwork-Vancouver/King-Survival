@@ -16,23 +16,24 @@
             this.Position = position;
         }
 
-        protected int HorizontalDirection { get; set; }
+        public abstract void ProcessCommand();
 
         protected IFigure CommandObject { get; set; }
 
-        protected Board Board { get; set; }
+        private Board Board { get; set; }
 
-        public Position Position { get; set; }
+        private Position Position { get; set; }
 
-        public abstract void ProcessCommand();
+        private int HorizontalDirection { get; set; }
 
+       
         protected void ExecuteMoveCommand(int verticalDirection)
         {
             Position positionToMove = new Position(this.Position.X + this.HorizontalDirection, this.Position.Y + verticalDirection, GameConstants.BoardWidth, GameConstants.BoardHeight);
 
-            bool occupied = Board.Figures.FirstOrDefault(x => x.Key.X == positionToMove.X && x.Key.Y == positionToMove.Y).Value != null;
+            var occupied = Board.IsNextPositionAvailable(positionToMove.X, positionToMove.Y);
 
-            if (!occupied)
+            if (occupied)
             {
                 this.Board.Figures[positionToMove] = this.CommandObject;
                 this.Board.Figures.Remove(new KeyValuePair<Position, IFigure>(this.Position, this.CommandObject));
@@ -42,6 +43,5 @@
                 throw new Exception("Occupied Position to move.");
             }
         }
-
     }
 }

@@ -6,7 +6,7 @@
 
     public static class CommandFactory
     {
-        public static MoveCommand Create(int horizontalDirection, int verticalDirection, IFigure fig, Board board, Position position)
+        public static MoveCommand Create(int horizontalDirection, int verticalDirection, IFigure fig, Position position, Board board)
         {
             switch (verticalDirection)
             {

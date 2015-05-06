@@ -1,11 +1,11 @@
 ﻿namespace KingSurvival.Models
 {
-    public class PossitionFactory
+    public class PositionFactory
     {
         private int maxX;
         private int maxY;
 
-        public PossitionFactory(int maxX, int maxY)
+        public PositionFactory(int maxX, int maxY)
         {
             this.maxX = maxX;
             this.maxY = maxY;

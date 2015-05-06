@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
-using KingSurvival.Contracts;
-
-namespace KingSurvival.Commands
+﻿namespace KingSurvival.Commands
 {
     using System;
     using System.Linq;
+    using System.Collections.Generic;
     using Models;
+    using Contracts;
+    using Enumerations;
 
     public class CommandParser
     {
@@ -30,9 +30,9 @@ namespace KingSurvival.Commands
 
             switch (commandHorizontalDirection)
             {
-                case 'R':
+                case (char)Directions.Right:
                     return 1;
-                case 'L':
+                case (char)Directions.Left:
                     return -1;
                 default: throw new Exception();
             }
@@ -44,13 +44,14 @@ namespace KingSurvival.Commands
 
             switch (commandVerticalDirection)
             {
-                case 'D':
+                case (char)Directions.Down:
                     return 1;
-                case 'U':
+                case (char)Directions.Up:
                     return -1;
                 default: throw new Exception();
             }
         }
+        //TO USE!!!!
 
         private bool ValidateCommandLength(string commandText)
         {
@@ -66,11 +67,11 @@ namespace KingSurvival.Commands
         {
             char figureSymbol = this.CommandText[0];
 
-            if (this.Turns % 2 == 0 && figureSymbol == 'K')
+            if (this.Turns % 2 == 1 && figureSymbol == (char)FigureSymbols.King)
             {
                 return GetFigureEntry(figureSymbol);
             }
-            else if (this.Turns % 2 == 1 && GameConstants.PawnSymbols.Contains(figureSymbol))
+            else if (this.Turns % 2 == 0 && GameConstants.PawnSymbols.Contains(figureSymbol))
             {
                 return GetFigureEntry(figureSymbol);
             }
