@@ -1,4 +1,6 @@
-﻿namespace KingSurvival.Commands
+﻿using KingSurvival.Exceptions;
+
+namespace KingSurvival.Commands
 {
     using System;
     using System.Collections.Generic;
@@ -38,7 +40,7 @@
             }
             else
             {
-                throw new Exception("Occupied Position to move.");
+                throw new Exception(ExceptionMessages.UnavailablePosition);
             }
         }
     }

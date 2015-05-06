@@ -8,11 +8,14 @@
 
     public class Game
     {
-        public Game(Board board)
+        public Game(Board board, Renderer renderer)
         {
-            Board = board;
+            this.Renderer = renderer;
+            this.Board = board;
             this.Turns = 1;
         }
+
+        public Renderer Renderer { get; set; }
 
         public int Turns { get; set; }
 
@@ -29,13 +32,13 @@
             CommandParser parser;
             FigureEntry figureEntry;
 
-            Board.PrintBoard();
+            this.Renderer.Render(this.Board);
 
             while (this.Running)
             {
                 try
                 {
-                    Console.Write(this.Turns % 2 == 1 ? "King's turn: " : "Pawns' turn: ");
+                    Console.Write(this.Turns % 2 == 1 ? GameConstants.KingsTurnMessage : GameConstants.PawnsTurnMessage);
 
                     command = Console.ReadLine();
                     parser = new CommandParser(command, this.Board, this.Turns);
@@ -56,7 +59,7 @@
                     Console.WriteLine(e.Message);
                 }
 
-                Board.PrintBoard();
+                this.Renderer.Render(this.Board);
                 this.CheckForWinner();
             }
         }

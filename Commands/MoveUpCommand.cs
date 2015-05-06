@@ -21,7 +21,7 @@
             }
             else
             {
-                throw new Exception();
+                throw new Exception("shslalalala");
             }
         }
     }

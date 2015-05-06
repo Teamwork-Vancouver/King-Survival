@@ -7,7 +7,8 @@
         private static void Main()
         {
             var board = new Board(GameConstants.BoardWidth, GameConstants.BoardHeight);
-            var game = new Game(board);
+            var renderer = new Renderer();
+            var game = new Game(board, renderer);
             game.Run();
         }
     }

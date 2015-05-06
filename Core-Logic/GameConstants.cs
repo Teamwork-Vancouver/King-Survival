@@ -21,6 +21,9 @@
         public const string KingVictory = "King wins in {0} turns.";
         public const string KingLoss = "King lost in {0} turns.";
 
+        public const string KingsTurnMessage = "King's turn: ";
+        public const string PawnsTurnMessage = "Pawns' turn: ";
+
         public static readonly char[] PawnSymbols = { 'A', 'B', 'C', 'D' };
         public static readonly int[,] PossibleFigureMoves = { { -1, -1 }, { 1, -1 }, { 1, 1 }, { -1, 1 } };
     }

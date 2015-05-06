@@ -1,4 +1,6 @@
-﻿namespace KingSurvival.Commands
+﻿using KingSurvival.Exceptions;
+
+namespace KingSurvival.Commands
 {
     using System;
     using System.Collections.Generic;
@@ -24,6 +26,11 @@
 
         public FigureEntry Parse()
         {
+            if (!this.ValidateCommandLength())
+            {
+                throw new InvalidCommandException(ExceptionMessages.InvalidCommandLenght);
+            }
+
             char figureSymbol = this.CommandText[0];
 
             if (this.Turns % 2 == 1 && figureSymbol == (char)FigureSymbols.King)
@@ -36,7 +43,7 @@
             }
             else
             {
-                throw new Exception();
+                throw new InvalidCommandException(ExceptionMessages.InvalidFigureCharacter);
             }
         }
 
@@ -50,7 +57,7 @@
                     return 1;
                 case (char)Directions.Left:
                     return -1;
-                default: throw new Exception();
+                default: throw new InvalidCommandException(ExceptionMessages.InvalidHorizontalDirection);
             }
         }
 
@@ -64,13 +71,13 @@
                     return 1;
                 case (char)Directions.Up:
                     return -1;
-                default: throw new Exception();
+                default: throw new InvalidCommandException(ExceptionMessages.InvalidVerticalDirection);
             }
         }
 
-        private bool ValidateCommandLength(string commandText)
+        private bool ValidateCommandLength()
         {
-            if (commandText.Length != 3)
+            if (this.CommandText.Length != GameConstants.MaxCommandWordLength)
             {
                 return false;
             }
