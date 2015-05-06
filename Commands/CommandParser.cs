@@ -41,14 +41,13 @@ namespace KingSurvival.Commands
             {
                 return this.GetFigureEntry(figureSymbol);
             }
-            else if (this.Turns % 2 == 0 && GameConstants.PawnSymbols.Contains(figureSymbol))
+            
+            if (this.Turns % 2 == 0 && GameConstants.PawnSymbols.Contains(figureSymbol))
             {
                 return this.GetFigureEntry(figureSymbol);
             }
-            else
-            {
-                throw new InvalidCommandException(ExceptionMessages.InvalidFigureCharacter);
-            }
+
+            throw new InvalidCommandException(ExceptionMessages.InvalidFigureCharacter);
         }
         /// <summary>
         /// Gets the second symbol of the command text and parses it.

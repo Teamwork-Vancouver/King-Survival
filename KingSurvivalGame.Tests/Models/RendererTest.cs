@@ -1,11 +1,11 @@
-﻿using System;
-using System.IO;
-using KingSurvival;
-using KingSurvival.Models;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-
-namespace KingSurvivalGame.Tests.Models
+﻿namespace KingSurvivalGame.Tests.Models
 {
+    using System;
+    using System.IO;
+    using KingSurvival;
+    using KingSurvival.Models;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
+
     [TestClass]
     public class RendererTest
     {
