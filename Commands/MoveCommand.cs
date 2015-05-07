@@ -25,8 +25,6 @@
             this.Position = position;
         }
 
-        public abstract void ProcessCommand();
-
         protected IFigure CommandObject { get; set; }
 
         private Board Board { get; set; }
@@ -34,6 +32,8 @@
         private Position Position { get; set; }
 
         private int HorizontalDirection { get; set; }
+
+        public abstract void ProcessCommand();
 
         /// <summary>
         /// Executes a command depending on the vertical direction given.

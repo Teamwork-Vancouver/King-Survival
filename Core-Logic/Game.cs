@@ -11,8 +11,8 @@
     /// </summary>
     public class Game
     {
+        private static readonly object SyncRoot = new object();
         private static volatile Game instance;
-        private static readonly object syncRoot = new Object();
 
         /// <summary>
         /// The constructor for the Game class.
@@ -35,7 +35,7 @@
             {
                 if (instance == null)
                 {
-                    lock (syncRoot)
+                    lock (SyncRoot)
                     {
                         if (instance == null)
                         {

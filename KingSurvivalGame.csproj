@@ -48,7 +48,6 @@
     <Compile Include="Commands\MoveCommand.cs" />
     <Compile Include="Commands\MoveUpCommand.cs" />
     <Compile Include="Commands\MoveDownCommand.cs" />
-    <Compile Include="Contracts\ICommand.cs" />
     <Compile Include="Contracts\IFigure.cs" />
     <Compile Include="Enumerations\BoardSymbols.cs" />
     <Compile Include="Enumerations\Directions.cs" />
