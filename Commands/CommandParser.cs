@@ -1,16 +1,23 @@
-﻿using KingSurvival.Exceptions;
-
-namespace KingSurvival.Commands
+﻿namespace KingSurvival.Commands
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using Contracts;
     using Enumerations;
+    using Exceptions;
     using Models;
 
+    /// <summary>
+    /// The class which parses an input command.
+    /// </summary>
     public class CommandParser
     {
+        /// <summary>
+        /// The constructor of the Parser class.
+        /// </summary>
+        /// <param name="commandText">The text given as a command.</param>
+        /// <param name="board">The board on which the command should be executed.</param>
+        /// <param name="turns">The count of turns all figures took.</param>
         public CommandParser(string commandText, Board board, int turns)
         {
             this.CommandText = commandText.ToUpper();
@@ -25,7 +32,7 @@ namespace KingSurvival.Commands
         private string CommandText { get; set; }
 
         /// <summary>
-        /// Parses the command text an checks if it is valid after going throug several methods
+        /// Parses the command text an checks if it is valid.
         /// </summary>
         /// <returns>returns FigureEntry</returns>
         public FigureEntry Parse()
@@ -49,8 +56,9 @@ namespace KingSurvival.Commands
 
             throw new InvalidCommandException(ExceptionMessages.InvalidFigureCharacter);
         }
+
         /// <summary>
-        /// Gets the second symbol of the command text and parses it.
+        /// Gets the second symbol of the command text and returns a negative/positive integer number.
         /// </summary>
         /// <returns>(Integer) horisontal direction</returns>
         private int GetHorizontalDirection()
@@ -66,6 +74,7 @@ namespace KingSurvival.Commands
                 default: throw new InvalidCommandException(ExceptionMessages.InvalidHorizontalDirection);
             }
         }
+
         /// <summary>
         /// Gets the third symbol of the ommand text and parses it.
         /// </summary>
@@ -83,6 +92,7 @@ namespace KingSurvival.Commands
                 default: throw new InvalidCommandException(ExceptionMessages.InvalidVerticalDirection);
             }
         }
+
         /// <summary>
         /// Checks if the command text is exatly three letters.
         /// </summary>
@@ -96,11 +106,12 @@ namespace KingSurvival.Commands
 
             return true;
         }
+
         /// <summary>
-        /// Searches the board for the figure symbol passed to it and makes a FigureEntry Object
+        /// Searches the board for the figure symbol passed to it and makes a FigureEntry Object.
         /// </summary>
-        /// <param name="figureSymbol">The symbol of the current fugure</param>
-        /// <returns>The FigureEntry object</returns>
+        /// <param name="figureSymbol">The symbol of the current fugure.</param>
+        /// <returns>The FigureEntry object.</returns>
         private FigureEntry GetFigureEntry(char figureSymbol)
         {
             KeyValuePair<Position, IFigure> entry;

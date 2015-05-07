@@ -6,10 +6,8 @@
     public class GameException : Exception
     {
         /// <summary>
-        /// 
-        /// 
+        /// The base game exception.
         /// </summary>
-       
         public GameException()
             : base()
         {

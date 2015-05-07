@@ -6,11 +6,19 @@
     using Enumerations;
     using Models;
 
+    /// <summary>
+    /// The primary game logic class holding the game board and loop.
+    /// </summary>
     public class Game
     {
         private static volatile Game instance;
         private static readonly object syncRoot = new Object();
 
+        /// <summary>
+        /// The constructor for the Game class.
+        /// </summary>
+        /// <param name="board">The game board holding all coordinates of figures.</param>
+        /// <param name="renderer">The method for displaying the game board on the console.</param>
         private Game(Board board, Renderer renderer)
         {
             this.Renderer = renderer;
@@ -18,6 +26,9 @@
             this.Turns = 1;
         }
 
+        /// <summary>
+        /// The property ensuring no second instance of the Game class is ever created.
+        /// </summary>
         public static Game Instance
         {
             get
@@ -46,7 +57,10 @@
         public Board Board { get; set; }
 
         public bool Running { get; set; }
-
+        
+        /// <summary>
+        /// The method which executes the main game loop until the game is running.
+        /// </summary>
         public void Run()
         {
             this.Running = true;
@@ -87,8 +101,9 @@
                 this.StopGameIfWinnerFound();
             }
         }
+
         /// <summary>
-        /// Makes the necessary checks to return if the king lost the game
+        /// Makes the necessary checks to determine whether the king lost the game.
         /// </summary>
         /// <returns>Boolean</returns>
         private bool CheckIfKingLost()
@@ -110,8 +125,9 @@
 
             return true;
         }
+
         /// <summary>
-        /// Makes the necessary check to if the king lost the game
+        /// Makes the necessary check to determine whether the king won the game.
         /// </summary>
         /// <returns>Boolean</returns>
         private bool CheckIfKingWon()
@@ -150,6 +166,7 @@
 
             return true;
         }
+
         /// <summary>
         /// Combines if the king lost or won and stops the game loop.
         /// </summary>

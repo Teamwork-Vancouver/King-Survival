@@ -6,8 +6,8 @@
     public class InvalidCommandException : MoveCommandException
     {
         /// <summary>
-        /// Invalid Command Exeption
-        /// Trown when the user command is invalid
+        /// Invalid Command Exeption.
+        /// Trown when the user command is invalid.
         /// </summary>
         public InvalidCommandException()
             : base()

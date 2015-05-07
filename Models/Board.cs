@@ -1,15 +1,22 @@
 ﻿namespace KingSurvival.Models
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
     using Contracts;
     using Enumerations;
 
+    /// <summary>
+    /// The class holding all the figures and all their coordinates.
+    /// </summary>
     public class Board
     {
         private PositionFactory positionFactory;
 
+        /// <summary>
+        /// Constructor method for the Board class.
+        /// </summary>
+        /// <param name="boardWidth">The number of columns per row of the board.</param>
+        /// <param name="boardHeight">The number of rows per column of the board.</param>
         public Board(int boardWidth, int boardHeight)
         {
             this.Figures = new Dictionary<Position, IFigure>();
@@ -22,12 +29,13 @@
         }
 
         public IDictionary<Position, IFigure> Figures { get; set; }
+
         /// <summary>
-        /// Finds if the possition you want to move is occupied or in bounds of the field
+        /// Perfoms a check on the desired position and determins whether it is occupied, inside ot outside the field.
         /// </summary>
-        /// <param name="nextPositionX">the X coordinates the player wants to move</param>
-        /// <param name="nextPositionY">the Y coordinates the player wants to move</param>
-        /// <returns>Boollean if you can move there</returns>
+        /// <param name="nextPositionX">X coordinates of the moving figure.</param>
+        /// <param name="nextPositionY">Y coordinates of the moving figure.</param>
+        /// <returns>A boolean values showing if the move is valid.</returns>
         public bool IsPositionAvailableForMove(int nextPositionX, int nextPositionY)
         {
             bool occupied =
@@ -35,11 +43,12 @@
     
             return occupied && this.IsPositionInBounds(nextPositionX, nextPositionY);
         }
+
         /// <summary>
-        /// Finds if the next position is inside of the field
+        /// Determins whether the position specified is inside or outside the field.
         /// </summary>
-        /// <param name="nextPositionX">the X coordinates the player wants to move</param>
-        /// <param name="nextPositionY">the Y coordinates the player wants to move</param>
+        /// <param name="nextPositionX">X coordinates of the moving figure.</param>
+        /// <param name="nextPositionY">Y coordinates of the moving figure.</param>
         /// <returns>true if the nex place you want to move is in bounds of the field</returns>
         public bool IsPositionInBounds(int nextPositionX, int nextPositionY)
         {
@@ -48,11 +57,12 @@
 
             return insideX && insideY;
         }
+
         /// <summary>
-        /// inserts a figure by position(created by a position factory) in the Figures dictionary
+        /// A Figure with its coordinates is being added to the board by this method upon execution.
         /// </summary>
-        /// <param name="x">position on the X axis</param>
-        /// <param name="y">position on the y axis</param>
+        /// <param name="x">Figure coordinate X.</param>
+        /// <param name="y">Figure coordinate Y.</param>
         /// <param name="fig">the figure you want to insert in the dictionary</param>
         private void AddFigure(int x, int y, IFigure fig)
         {

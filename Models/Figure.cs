@@ -2,8 +2,15 @@
 {
     using Contracts;
 
+    /// <summary>
+    /// Abstract class hoding the posible directions of movement of such.
+    /// </summary>
     public abstract class Figure : IFigure
     {
+        /// <summary>
+        /// Abstract constructor method.
+        /// </summary>
+        /// <param name="symbol">The symbol illustrating the figure on the Board.</param>
         protected Figure(char symbol)
         {
             this.Symbol = symbol;
@@ -27,11 +34,6 @@
         }
 
         public virtual bool CanMoveRight
-        {
-            get { return false; }
-        }
-
-        public virtual bool CanMoveDigonal
         {
             get { return false; }
         }

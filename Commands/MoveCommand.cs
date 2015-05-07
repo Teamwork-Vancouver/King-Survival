@@ -1,14 +1,22 @@
-﻿using KingSurvival.Exceptions;
-
-namespace KingSurvival.Commands
+﻿namespace KingSurvival.Commands
 {
-    using System;
     using System.Collections.Generic;
     using Contracts;
+    using Exceptions;
     using Models;
 
+    /// <summary>
+    /// The base abstract class for commands.
+    /// </summary>
     public abstract class MoveCommand
     {
+        /// <summary>
+        /// The class constructor.s
+        /// </summary>
+        /// <param name="horizontalDirection">The direction on the X axis.</param>
+        /// <param name="commandObject">The object of the action executed by the command.</param>
+        /// <param name="board">The board on which the action will take place.</param>
+        /// <param name="position">the next position on which the command object shall be moved.</param>
         protected MoveCommand(int horizontalDirection, IFigure commandObject, Board board, Position position)
         {
             this.HorizontalDirection = horizontalDirection;
@@ -26,10 +34,11 @@ namespace KingSurvival.Commands
         private Position Position { get; set; }
 
         private int HorizontalDirection { get; set; }
+
         /// <summary>
-        /// makes the move given verticalDirection
+        /// Executes a command depending on the vertical direction given.
         /// </summary>
-        /// <param name="verticalDirection">(int) the vertical direction for a figure to move</param>
+        /// <param name="verticalDirection">(int) The vertical direction for a figure to move.</param>
         protected void ExecuteMoveCommand(int verticalDirection)
         {
             Position positionToMove = new Position(this.Position.X + this.HorizontalDirection, this.Position.Y + verticalDirection, GameConstants.BoardWidth, GameConstants.BoardHeight);

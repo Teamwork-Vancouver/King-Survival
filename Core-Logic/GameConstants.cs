@@ -1,5 +1,8 @@
 ﻿namespace KingSurvival
 {
+    /// <summary>
+    /// The class holding non-changing values essential for the game.
+    /// </summary>
     public static class GameConstants
     {
         public const int BoardWidth = 7;

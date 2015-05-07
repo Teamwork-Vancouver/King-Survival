@@ -1,5 +1,8 @@
 ﻿namespace KingSurvival.Exceptions
 {
+    /// <summary>
+    /// Class holding all exceptions used while throwing an Exception.
+    /// </summary>
     public class ExceptionMessages
     {
         public const string InvalidCommandLenght = "Command lenght must be 3 characters long.";

@@ -4,12 +4,15 @@
     using System.Linq;
     using Contracts;
 
+    /// <summary>
+    /// Class responsible for displaying the Board on the console.
+    /// </summary>
     public class Renderer
     {
         /// <summary>
-        /// Prints the board on the console.
+        /// Method printing the board on the console.
         /// </summary>
-        /// <param name="board">current game board</param>
+        /// <param name="board">The current game board.</param>
         public void Render(Board board)
         {
             string rowNumbers = "0 1 2 3 4 5 6 7";

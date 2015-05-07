@@ -33,7 +33,6 @@
         [TestMethod]
         public void CheckIfIsPositionInBoundReturnsTheRightResult()
         {
-
             int minBoundsX = 0;
             int minBoundsY = 0;
             int maxBoundsX = 7;
