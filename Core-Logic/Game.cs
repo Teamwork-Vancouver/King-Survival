@@ -11,15 +11,12 @@
     /// </summary>
     public class Game
     {
-        private static readonly object SyncRoot = new object();
-        private static volatile Game instance;
-
         /// <summary>
         /// The constructor for the Game class.
         /// </summary>
         /// <param name="board">The game board holding all coordinates of figures.</param>
         /// <param name="renderer">The method for displaying the game board on the console.</param>
-        private Game(Board board, Renderer renderer)
+        public Game(Board board, Renderer renderer)
         {
             this.Renderer = renderer;
             this.Board = board;
@@ -29,27 +26,6 @@
         /// <summary>
         /// The property ensuring no second instance of the Game class is ever created.
         /// </summary>
-        public static Game Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    lock (SyncRoot)
-                    {
-                        if (instance == null)
-                        {
-                            var board = new Board(GameConstants.BoardWidth, GameConstants.BoardHeight);
-                            var renderer = new Renderer();
-                            instance = new Game(board, renderer);
-                        }
-                    }
-                }
-
-                return instance;
-            }
-        }
-
         public Renderer Renderer { get; set; }
 
         public int Turns { get; set; }

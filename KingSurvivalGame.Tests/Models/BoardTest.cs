@@ -1,9 +1,7 @@
 ﻿namespace KingSurvavalGame.Tests.Models
 {
-    using System.Collections.Generic;
     using System.Linq;
     using KingSurvival;
-    using KingSurvival.Contracts;
     using KingSurvival.Enumerations;
     using KingSurvival.Models;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
