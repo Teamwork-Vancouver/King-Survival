@@ -51,8 +51,10 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Commands\CommandFactoryTest.cs" />
+    <Compile Include="Commands\MoveCommandTest.cs" />
+    <Compile Include="Core-Logic\GameTest.cs" />
     <Compile Include="Models\RendererTest.cs" />
-    <Compile Include="Models\UnitTest1.cs" />
+    <Compile Include="Models\BoardTest.cs" />
     <Compile Include="Commands\CommandParserTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

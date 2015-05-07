@@ -1,18 +1,17 @@
 ﻿namespace KingSurvavalGame.Tests.Models
 {
+    using System.Collections.Generic;
+    using System.Linq;
     using KingSurvival;
     using KingSurvival.Contracts;
     using KingSurvival.Enumerations;
     using KingSurvival.Models;
-    using System.Collections.Generic;
-    using System.Linq;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class BoardTests
     {
-        public Board board;
-        public Dictionary<Position, IFigure> figures;
+        private Board board;
 
         [TestInitialize]
         public void InitFigures()
@@ -38,7 +37,6 @@
             int maxBoundsX = 7;
             int maxBoundsY = 7;
 
-            //var keys = this.board.Figures.Keys;
             for (int i = -10; i <= maxBoundsX * 2; i++)
             {
                 for (int j = -10; j <= maxBoundsY * 2; j++)
@@ -73,8 +71,6 @@
                     {
                         Assert.AreEqual(true, this.board.IsPositionAvailableForMove(i, j), "This method shoud have return true on values " + i + "and " + j);
                     }
-
-                    //Assert.AreEqual(true, this.board.IsPositionInBounds(i, j), "The method shoud return true");
                 }
             }
         }

@@ -32,10 +32,6 @@
             {
                 this.ExecuteMoveCommand(VerticalDirection);
             }
-            else
-            {
-                throw new InvalidCommandException(ExceptionMessages.InvalidUpMove);
-            }
         }
     }
 }

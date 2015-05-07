@@ -1,12 +1,12 @@
 ﻿namespace KingSurvivalGame.Tests.Commands
 {
     using KingSurvival;
-    using Microsoft.VisualStudio.TestTools.UnitTesting;
     using KingSurvival.Enumerations;
     using KingSurvival.Exceptions;
     using KingSurvival.Commands;
     using KingSurvival.Contracts;
     using KingSurvival.Models;
+    using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     [TestClass]
     public class CommandFactoryTest
@@ -17,11 +17,11 @@
         private int horizontalDirection;
 
         [TestInitialize]
-        public void InitList()
+        public void Initializer()
         {
             this.board = new Board(GameConstants.BoardWidth, GameConstants.BoardHeight);
             this.position = new Position(5, 5, 7, 7);
-            this.kingFigure = new King((char) FigureSymbols.King);
+            this.kingFigure = new King((char)FigureSymbols.King);
             this.horizontalDirection = 1;
         }
 
